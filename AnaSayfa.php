@@ -6,16 +6,14 @@
  * Time: 17:48
  */
 
-$title="Personel Ana Sayfası";
-//require_once 'Include/Baslik.php';
+
 require_once(__DIR__.'/Model/AkademikPersonel.class.php'); // Session icerisindeki nesnenin oluşturulabilmesi için gerekli
-//require_once 'Guvenlik/PersonelDenetim.php'; //Site içerisindeki tüm sayfalara eklenmeli...
+require_once 'Guvenlik/PersonelDenetim.php'; //Site içerisindeki tüm sayfalara eklenmeli...
 require_once (__DIR__.'/Model/ModelFactory.class.php');
 require_once (__DIR__.'/Model/AkademikPersonelGoruntuleJSON.class.php');
+
 //session_start();
 
-//$_SESSION['akademikPersonel']->getAdi();
-//echo "aaa".$_SESSION['personelNo'];
 ?>
 
 <!DOCTYPE html>

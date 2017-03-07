@@ -8,7 +8,7 @@
 
 namespace cc;
 
-require_once 'Kisi.class.php';
+require_once (__DIR__.'/Kisi.class.php');
 
 class Ogrenci extends \cc\Kisi
 {
