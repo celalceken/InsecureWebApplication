@@ -57,18 +57,17 @@ class SessionManagement {
 
     protected function checkCredentials($userName,$password)
     {
-        //A2' or '1'='1';--
-        // A2' or '1';--
+
+
 
         include(__DIR__.'/../Include/DatabaseConnection.php');
 
-        $sql="SELECT \"personelNo\",\"adi\",\"soyadi\",\"sifre\" FROM \"AkademikPersonel\" where \"personelNo\"='".$userName."' AND \"sifre\"='".md5($password)."'";
+        $sql="SELECT personelNo,adi,soyadi,sifre FROM AkademikPersonel where personelNo='".$userName."' AND sifre='".md5($password)."'";
 
-        //$sql="SELECT \"personelNo\",\"adi\",\"soyadi\",\"sifre\" FROM \"AkademikPersonel\" where \"personelNo\"= :pn AND \"sifre\"= :sfr";
 
-        $sth = $veritabaniBaglantisi->query($sql);
-        //$sth = $veritabaniBaglantisi->prepare($sql);
-        //$sth->execute(array(':pn' => $userName, ':sfr' => md5($password)));
+        //$sth = $veritabaniBaglantisi->query($sql);
+        $sth = $veritabaniBaglantisi->prepare($sql);
+        $sth->execute(array(':pn' => $userName, ':sfr' => md5($password)));
 
         $sth->setFetchMode(PDO::FETCH_CLASS, "\cc\AkademikPersonel");
         $akademikPersonel=$sth->fetchAll();

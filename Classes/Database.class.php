@@ -31,7 +31,7 @@ class Database //implements VeritabaniArayuz
 
         try
         {   //echo "$vtys:dbname=$veritabaniAdi";
-            $this->databaseConnection = new PDO("$vtys:dbname=$veritabaniAdi;   host=$sunucu;   user=$kullaniciAdi;   password=$sifre");
+            $this->databaseConnection = new PDO('mysql:host=localhost; dbname=obs', $kullaniciAdi, $sifre);
             //echo $this->databaseConnection;
             //$this->databaseConnection = new PDO('pgsql:dbname=OgrenciBilgiSistemi;   host=localhost;   user=postgres;   password=LecturePassword');
 
