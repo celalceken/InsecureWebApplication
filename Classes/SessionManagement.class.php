@@ -62,6 +62,14 @@ class SessionManagement {
 
         include(__DIR__.'/../Include/DatabaseConnection.php');
 
+
+
+
+        //$sql="SELECT personelNo,sifre FROM personel where personelNo='".mysqli_real_escape_string($baglantiNo,$_POST['personelNo'])."' AND sifre='".mysql_real_escape_string($_POST['sifre'])."'";
+
+        //$sql="SELECT personelNo,sifre FROM personel where personelNo='".filter_var($_POST['personelNo'],FILTER_SANITIZE_STRING)."' AND sifre='".filter_var($_POST['sifre'],FILTER_SANITIZE_STRING)."'";
+
+
         $sql="SELECT personelNo,adi,soyadi,sifre FROM AkademikPersonel where personelNo='".$userName."' AND sifre='".md5($password)."'";
 
 
