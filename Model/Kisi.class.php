@@ -45,7 +45,9 @@ abstract class Kisi
      */
     public function setSoyadi($soyadi)
     {
-        $this->soyadi = $soyadi;
+        //filter_var($input, FILTER_SANITIZE_STRING); //FILTER_SANITIZE_ENCODED;
+        $this->soyadi = filter_var($soyadi,FILTER_SANITIZE_ENCODED);
+        //$this->soyadi=$soyadi;
     }
 
     /**
