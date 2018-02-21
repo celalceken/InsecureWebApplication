@@ -57,14 +57,23 @@ class SessionManagement {
 
     protected function checkCredentials($userName,$password)
     {
-        /*$sql="SELECT personelNo, adi, soyadi,sifre FROM AkademikPersonel where personelNo='"
-            .$this->userName."' AND sifre='".$this->password."'";//
-            //sifre='".md5($this->password)."'";*/
+
+
 
         include(__DIR__.'/../Include/DatabaseConnection.php');
 
-        $sql="SELECT \"personelNo\",\"adi\",\"soyadi\",\"sifre\" FROM \"AkademikPersonel\" where \"personelNo\"= :pn AND \"sifre\"= :sfr";
 
+
+
+        //$sql="SELECT personelNo,sifre FROM personel where personelNo='".mysqli_real_escape_string($baglantiNo,$_POST['personelNo'])."' AND sifre='".mysql_real_escape_string($_POST['sifre'])."'";
+
+        //$sql="SELECT personelNo,sifre FROM personel where personelNo='".filter_var($_POST['personelNo'],FILTER_SANITIZE_STRING)."' AND sifre='".filter_var($_POST['sifre'],FILTER_SANITIZE_STRING)."'";
+
+
+        $sql="SELECT personelNo,adi,soyadi,sifre FROM AkademikPersonel where personelNo='".$userName."' AND sifre='".md5($password)."'";
+
+
+        //$sth = $veritabaniBaglantisi->query($sql);
         $sth = $veritabaniBaglantisi->prepare($sql);
         $sth->execute(array(':pn' => $userName, ':sfr' => md5($password)));
 

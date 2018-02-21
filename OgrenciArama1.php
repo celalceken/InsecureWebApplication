@@ -14,7 +14,8 @@ require_once(__DIR__.'/Model/OgrenciGoruntuleJSON.class.php');
 else
 */
 if(($_POST['mod'])==1)
-	$sql="SELECT \"ogrenciNo\", \"adi\", \"soyadi\" FROM \"Ogrenci\" where \"adi\" Like '".$_POST['adi']."%'";
+	$sql="SELECT ogrenciNo, adi,soyadi FROM Ogrenci where adi Like '".$_POST['adi']."%'";
+
 else if(($_POST['mod'])==2)
 	$sql="SELECT \"ogrenciNo\", \"adi\", \"soyadi\" FROM \"Ogrenci\" Where \"ogrenciNo\"='".$_POST['ogrenciNo']."'";
 //echo $sql;
